@@ -1,0 +1,49 @@
+﻿kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: queue-punthai-frontend-web
+  namespace: queue-punthai-dev
+spec:
+  replicas: 1
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
+  revisionHistoryLimit: 2
+  selector:
+    matchLabels:
+      app: queue-punthai-frontend-web
+  template:
+    metadata:
+      labels:
+        app: queue-punthai-frontend-web
+    spec:
+      serviceAccountName: queue-punthai-frontend
+      containers:
+        - name: queue-punthai-frontend-web
+          image: 973005005143.dkr.ecr.ap-southeast-1.amazonaws.com/queue-punthai-frontend-web-service:1.0.4.8
+          resources:
+            limits:
+              memory: "128Mi"
+              cpu: "500m"
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Production
+            - name: TZ
+              value: Asia/Bangkok
+          ports:
+            - containerPort: 8080
+              protocol: TCP
+          volumeMounts:
+          - name: appsetting
+            mountPath: /app/appsettings.Production.json
+            subPath: appsettings.Production.json
+            readOnly: true           
+      restartPolicy: Always
+      imagePullSecrets:      
+        - name: queue-punthai-secret
+      volumes:
+        - name:  appsetting
+          secret:
+            secretName: queue-punthai-secret

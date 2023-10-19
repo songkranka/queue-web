@@ -1,0 +1,94 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: queue-punthai-ingress-web-dev
+  namespace: queue-punthai
+  annotations:
+    kubernetes.io/ingress.class: nginx-dev
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.org/client-max-body-size: "100m"    
+    nginx.ingress.kubernetes.io/use-regex: "true" 
+spec:
+  rules:
+   - http:
+      paths:   
+      - path: /(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: queue-punthai-frontend-web-service
+            port: 
+              number: 80                     
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: queue-punthai-ingress-api-dev
+  namespace: queue-punthai
+  annotations:
+    kubernetes.io/ingress.class: nginx-dev
+    nginx.ingress.kubernetes.io/proxy-body-size: "100m"
+    nginx.org/client-max-body-size: "100m"    
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/use-regex: "true" 
+spec:
+  rules:
+   - http:
+      paths:
+      - path: /authorize(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-authorize-api-service
+            port: 
+              number: 80  
+      - path: /feeds(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-feeds-api-service
+            port: 
+              number: 80  
+      - path: /import(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-import-api-service
+            port: 
+              number: 80  
+      - path: /masterdata(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-masterdata-api-service
+            port: 
+              number: 80  
+      - path: /notify(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-notify-api-service
+            port: 
+              number: 80  
+      - path: /tasks(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-tasks-api-service
+            port: 
+              number: 80
+      - path: /fileupload(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-fileupload-api-service
+            port: 
+              number: 80
+      - path: /report(/|$)(.*)
+        pathType: Prefix
+        backend:
+          service: 
+            name: station-warpad-report-api-service
+            port: 
+              number: 80
+---

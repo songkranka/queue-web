@@ -1,0 +1,610 @@
+﻿@page
+@model queuefront.Pages.PunthaiModel
+@{
+    ViewData["Title"] = "Punthai";
+    Layout = "_Layout";
+}
+<script src="~/js/sweetalert2.min.js"></script>
+<div class="main card-bg">
+    <div class="cart-over-flow">
+        <div class="col-md-4 summary d-none d-md-block">
+            <div class="summary-head">
+                <div class="row">
+                    <div class="col-12"><h4><b>พร้อมเสิร์ฟ</b></h4></div>
+                </div>
+            </div>
+            <div class="order-sub-head"></div>
+
+            <div class="row order-sub-queue">
+                <div class="col-6">
+                    <div class="text-title-order">Eat/Take</div>
+                </div>
+                <div class="col-6">
+                    <div class="text-title-order">Delevery</div>
+                </div>
+            </div>
+            <div class="order-serve">
+                <div class="row pd-2-rem ">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem ">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem ">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem ">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem ">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+            </div>
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            </div>
+
+            <div class="summary-head-ready">
+                <div class="row">
+                    <div class="col-12"><h4><b>กำลังดำเนินการ</b></h4></div>
+                </div>
+            </div>
+            <div class="order-sub-head"></div>
+
+            <div class="row order-sub-queue">
+                <div class="col-6">
+                    <div class="text-title-order">Eat/Take </div>
+                </div>
+                <div class="col-6">
+                    <div class="text-title-order">Delivery</div>
+                </div>
+            </div>
+            <div class="order-wait">
+                <div class="row pd-2-rem">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+                <div class="row pd-2-rem">
+                    <div class="col-6 item-list">&nbsp;</div>
+                    <div class="col-6 item-list">&nbsp;</div>
+                </div>
+            </div>
+
+            <div class="row" style="border-top: 1px solid rgba(0,0,0,.1); padding: 2vh 0;">
+            </div>
+        </div>
+        <div class="col-md-8 ">
+
+            <div class="title-head">
+                <div class="row">
+                    <div class="col-8 col-md-8">
+                        <div class="title-text shopcode-punthai">
+                            <span>สาขา:</span>
+                            <span class="txt-shopcode"></span>
+                        </div>
+                        <div class="title-text setup-shopcode">
+                            <input type="button" class="button-set-shopcode" value="ShopCode" onclick="SetShopCode()" />
+
+                        </div>
+                    </div>
+                    <div class="col-4 col-md-4 text-center">
+                        <img class="img-punthai" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="cart over-flow-md">
+                <div class="order-list">
+                    
+    
+                    
+                    <div class="row order-row">
+                        <div class="main card-flex">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#1 Take Away</div>
+                                </div>
+                                <div class="text-no"></div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-take-away">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#2 Lineman</div>
+                                </div>
+                                <div class="text-no">
+                                    <div class="">Order No. 123456</div>
+                                </div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-lineman">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#3 PanDa</div>
+                                </div>
+                                <div class="text-no">Order No. 12333</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-panda">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#4 Grab</div>
+                                </div>
+                                <div class="text-no">Order No. 99988</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-grab">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">
+                                        Q#5 LineMan
+                                    </div>
+                                </div>
+                                <div class="text-no">Order No. 122123</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-lineman">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#6 Shopee</div>
+                                </div>
+                                <div class="text-no">Order No. 122123</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-shopee">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="row text-muted">Q#7 Shopee</div>
+                                </div>
+                                <div class="text-no">Order No. 122123</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-shopee">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <div>
+                                    <button class="button-call">SERVE</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="row text-muted">Q#8 Shopee</div>
+                                </div>
+                                <div class="text-no">Order No. 12223</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-shopee">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#9 Lineman</div>
+                                </div>
+                                <div class="text-no">
+                                    <div class="">Order No. 123456</div>
+                                </div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-lineman">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row order-row">
+                        <div class="main card-flex ">
+                            <div class="col-7 col-lg-8 col-md-7 col-sm-7">
+                                <div class="order-display-text">
+                                    <div class="text-muted">Q#10 PanDa</div>
+                                </div>
+                                <div class="text-no">Order No. 12333</div>
+                            </div>
+                            <div class="col-2 col-lg-2 col-md-2 col-sm-1">
+                                <img class="img-fluid img-airasia">
+                            </div>
+                            <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">
+                                <button class="button-call" alt-id="EI000011" onclick="ServeOrder(this)">SERVE</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    let myInterVal;
+    let myNpoint = '@ViewData["BaseAPI"]';
+    let myShop = '@ViewData["Shopcode"]';
+    $(document).ready(function () {
+
+        console.log(myNpoint);
+        console.log(myShop);
+
+        CheckShopCode();
+        LoadData();
+        myInterVal = setInterval(LoadData, 10000);
+    });
+    function CheckShopCode() {
+        var shop = localStorage.getItem('ShopCode');
+
+        if (shop == "" || shop == null || shop == undefined) {
+            $('.shopcode-punthai').hide();
+            $('.setup-shopcode').show();
+            myShop = shop;
+        }
+        else {
+            $('.setup-shopcode').hide();
+            $('.shopcode-punthai').show();
+            $('.txt-shopcode').text(shop);
+        }
+    }
+    function SetShopCode() {
+        Swal.fire({
+            title: 'Submit Shop Code',
+            input: 'text',
+            inputAttributes: {
+                autocapitalize: 'off'
+            },
+            showCancelButton: true,
+            confirmButtonText: 'Setup',
+            showLoaderOnConfirm: true,
+            preConfirm: (data) => {
+                return data;
+            },
+            allowOutsideClick: () => !Swal.isLoading()
+        }).then((result) => {
+            if (result.isConfirmed) {
+
+                MyShop = result.value;
+                localStorage.setItem('ShopCode', result.value);
+                stopTimer()
+                resetTimer();
+                CheckShopCode();
+            }
+        })
+    }
+    function stopTimer() {
+        clearInterval(myInterVal);
+    }
+    function resetTimer() {
+        myInterVal = setInterval(LoadData, 8000);
+    }
+    function LoadData() {
+
+        var myShopCode = localStorage.getItem('ShopCode');
+
+        $.ajax({
+            type: "POST",
+            url: myNpoint + "/GetQueue",
+            data: JSON.stringify({ ShopCode: myShopCode }),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+
+                var _html = '';
+                console.log(response);
+                $.each(response.order, function (i, o) {
+                    
+                    _html += '<div class="row order-row">';
+                    _html += '  <div class="main card-flex">';
+                    _html += '      <div class="col-7 col-lg-8 col-md-7 col-sm-7">';
+                    _html += '          <div class="order-display-text">';
+                    _html += '              <div class="text-muted">' + o.queue + ' ' + o.queueDes + '</div>';
+                    _html += '          </div>';
+                    if (o.queueMode == "TA" || o.queueMode == "TE" || o.queueMode == "EI" || o.queueMode == "TD" || o.queueMode == "PC" || o.queueMode == "ZP") {
+                        _html += '          <div class="text-no">&nbsp;</div>';
+                    }
+                    else {
+                        _html += '          <div class="text-no">Order No. ' + o.queueNo + '</div>';
+                    }
+
+                    _html += '      </div>';
+                    _html += '      <div class="col-2 col-lg-2 col-md-2 col-sm-1">';
+                    if (o.queueMode == "TA") {
+                        _html += '          <img class="img-fluid img-take-away">';
+                    }
+                    if (o.queueMode == "TD" || o.queueMode == "TE" || o.queueMode == "PC" || o.queueMode == "ZP") {
+                        _html += '          <img class="img-fluid img-drive">';
+                    }
+                    if (o.queueMode == "EI") {
+                        _html += '          <img class="img-fluid img-cake">'
+                    }
+                    if (o.queueMode == "001") {
+                        _html += '          <img class="img-fluid img-grab">';
+                    }
+                    if (o.queueMode == "002") {
+                        _html += '          <img class="img-fluid img-shopee">';
+                    }
+                    if (o.queueMode == "003") {
+                        _html += '          <img class="img-fluid img-lineman">';
+                    }
+                    if (o.queueMode == "004") {
+                        _html += '          <img class="img-fluid img-rbh">';
+                    }
+                    if (o.queueMode == "005") {
+                        _html += '          <img class="img-fluid img-panda">';
+                    }
+                    if (o.queueMode == "006") {
+                        _html += '          <img class="img-fluid img-airasia">';
+                    }
+                    if (o.queueMode == "007") {
+                        _html += '          <img class="img-fluid img-true">';
+                    }
+                    _html += '      </div>';
+                    _html += '      <div class="col-3 col-lg-2 col-md-3 col-sm-1 align-btn-call">';
+                    if (o.queueType == "SERV") {
+                        _html += '          <button class="button-ready" alt-id="' + o.queueNo + '" onclick="ReadyOrder(this)">READY</button>';
+                    }
+                    else {
+                        _html += '          <button class="button-call" alt-id="' + o.queueNo + '" onclick="ServeOrder(this)">SERVE</button>';
+                    }
+                    _html += '      </div>';
+                    _html += ' </div>';
+                    _html += '</div>';
+                });
+                $('.order-list').empty().append(_html);
+                var _serve = '';
+                if (response.serve != undefined) {
+
+                    _serve += '<div class="row pd-2-rem">';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.take1 + '</div>';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.delivery1 + '</div>';
+                    _serve += '</div>';
+                    _serve += '<div class="row pd-2-rem">';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.take2 + '</div>';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.delivery2 + '</div>';
+                    _serve += '</div>';
+                    _serve += '<div class="row pd-2-rem">';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.take3 + '</div>';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.delivery3 + '</div>';
+                    _serve += '</div>';
+                    _serve += '<div class="row pd-2-rem">';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.take4 + '</div>';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.delivery4 + '</div>';
+                    _serve += '</div>';
+                    _serve += '<div class="row pd-2-rem">';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.take5 + '</div>';
+                    _serve += '    <div class="col-6 item-list">' + response.serve.delivery5 + '</div>';
+                    _serve += '</div>';
+                    $('.order-serve').empty().append(_serve);
+                }
+
+                var _wait = '';
+                if (response.wait != undefined) {
+
+                    _wait += '<div class="row pd-2-rem">';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.take1 + '</div>';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.delivery1 + '</div>';
+                    _wait += '</div>';
+                    _wait += '<div class="row pd-2-rem">';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.take2 + '</div>';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.delivery2 + '</div>';
+                    _wait += '</div>';
+                    _wait += '<div class="row pd-2-rem">';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.take3 + '</div>';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.delivery3 + '</div>';
+                    _wait += '</div>';
+                    _wait += '<div class="row pd-2-rem">';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.take4 + '</div>';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.delivery4 + '</div>';
+                    _wait += '</div>';
+                    _wait += '<div class="row pd-2-rem">';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.take5 + '</div>';
+                    _wait += '    <div class="col-6 item-list">' + response.wait.delivery5 + '</div>';
+                    _wait += '</div>';
+
+                    $('.order-wait').empty().append(_wait);
+                }
+            },
+            error: function (response) {
+                Swal.fire({
+                    position: 'center',
+                    icon: 'error',
+                    title: 'Queue Error: ' + myShopCode,
+                    showConfirmButton: false,
+                    timer: 2500
+                });
+                stopTimer();
+            }
+        });
+    }
+    function ServeOrder(obj) {
+
+        var billno = $(obj).attr("alt-id");
+        Swal.fire({
+            title: 'Do you want to serve type ?',
+            text: "Service Time the order 120 seccond!",
+            showCancelButton: true,
+            cancelButtonColor: '#28a745',
+            confirmButtonText: 'Serve',
+            cancelButtonText: 'SLA',
+            reverseButtons: true
+        }).then((result) => {
+            if (result.isConfirmed) {
+                Serve(billno, '');
+            }
+            if (result.dismiss === Swal.DismissReason.cancel) {
+                Serve(billno, 'SLA');
+            }
+        })
+    }
+    function ReadyOrder(obj) {
+
+        var billno = $(obj).attr("alt-id");
+        Swal.fire({
+            title: 'Do you want to ready the order?',
+            showCancelButton: true,
+            confirmButtonText: 'Serve'
+        }).then((result) => {
+
+            if (result.isConfirmed) {
+                Ready(billno);
+            }
+        })
+    }
+    function Serve(billno, showtime) {
+        if (billno != null && billno != "") {
+            $.ajax({
+                type: "POST",
+                url: myNpoint + "/PunthaiServe",
+                data: JSON.stringify({ Orderno: billno, OrderType: showtime }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+
+                    if (response.result == "success") {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: response.result,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                        LoadData();
+                    }
+                    else {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: response.result,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'billno in valid',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+    function Ready(billno) {
+        if (billno != null && billno != "") {
+            $.ajax({
+                type: "POST",
+                url: myNpoint + "/PunthaiReady",
+                data: JSON.stringify({ Orderno: billno, OrderType: "" }),
+                contentType: "application/json",
+                dataType: "json",
+                success: function (response) {
+                    if (response.result == "success") {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'success',
+                            title: response.result,
+                            showConfirmButton: false,
+                            timer: 2000
+                        });
+                        LoadData();
+                    }
+                    else {
+                        Swal.fire({
+                            position: 'center',
+                            icon: 'error',
+                            title: response.result,
+                            showConfirmButton: false,
+                            timer: 1500
+                        });
+                    }
+                },
+                error: function (response) {
+                    console.log(response);
+                }
+            });
+        }
+        else {
+            Swal.fire({
+                position: 'center',
+                icon: 'error',
+                title: 'billno in valid',
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+    }
+</script>

@@ -1,0 +1,49 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>86f3fa87-5d36-4b27-8825-8b6ec3cb185e</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerfileContext>.</DockerfileContext>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove=".github\k8s_deployment\**" />
+    <Content Remove=".github\k8s_deployment\**" />
+    <EmbeddedResource Remove=".github\k8s_deployment\**" />
+    <None Remove=".github\k8s_deployment\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".github\azure\deployment.yaml" />
+    <None Include=".github\azure\ingress.yaml" />
+    <None Include=".github\azure\service.yaml" />
+    <None Include=".github\k8s_deploy\deployment.yaml" />
+    <None Include=".github\k8s_deploy\hpa.yaml" />
+    <None Include=".github\k8s_deploy\ingress-controller.yaml" />
+    <None Include=".github\k8s_deploy\ingress.yaml" />
+    <None Include=".github\k8s_deploy\namespace.yaml" />
+    <None Include=".github\k8s_deploy\secret.yaml" />
+    <None Include=".github\k8s_deploy\service.yaml" />
+    <None Include=".github\k8s_deploy\serviceaccount.yaml" />
+    <None Include=".github\k8s_uat\deployment.yaml" />
+    <None Include=".github\k8s_uat\hpa.yaml" />
+    <None Include=".github\k8s_uat\ingress.yaml" />
+    <None Include=".github\k8s_uat\namespace.yaml" />
+    <None Include=".github\k8s_uat\secret.yaml" />
+    <None Include=".github\k8s_uat\service.yaml" />
+    <None Include=".github\workflows\azure-kubernetes-service.yaml" />
+    <None Include=".github\workflows\CICD.yaml" />
+    <None Include=".github\workflows\dev-kubernetes-service.yaml" />
+    <None Include=".github\workflows\prd-kubernetes-service.yaml" />
+    <None Include=".github\workflows\uat-kubernetes-service.yaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.2" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+</Project>
